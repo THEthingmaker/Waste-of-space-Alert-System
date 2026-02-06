@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset=utf-8><title>📊</title><link rel=stylesheet href=s.css></head>
+<body>
+<h1>📈<span id=c>0</span></h1>
+<div id=a></div>
+<button onclick="location.href='index.html'">←</button>
+<script src=decrypt.js></script>
+<script>
+async function load(){
+ let r=await fetch('encrypted/alerts');
+ let t=await r.text();
+ let d=JSON.parse(sessionStorage.getItem('d'));
+ if(!d){location.href='index.html';return}
+ try{await decrypt(t,d);}catch{location.href='index.html';}}
+window.onload=load;
+</script>
+</body>
+</html>
