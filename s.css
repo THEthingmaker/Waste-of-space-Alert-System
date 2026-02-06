@@ -1,0 +1,8 @@
+*{margin:0;padding:0;box-sizing:border-box}
+body{font:14px monospace;background:#111;color:#fff;padding:20px}
+#c,#d{max-width:400px;margin:40px auto;text-align:center}
+input,button{width:100%;padding:12px;margin:8px 0;border:1px solid #333;background:#222;color:#fff}
+button{background:#06c;border:none;cursor:pointer}
+.b{border-left:4px solid #06c;padding:12px;margin:8px 0;background:#222;text-align:left}
+.h{border-color:#c00}.m{border-color:#c90}.l{border-color:#090}
+#e{margin-top:8px}
