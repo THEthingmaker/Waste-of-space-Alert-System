@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>🔒</title>
+<link rel=stylesheet href=s.css>
+</head>
+<body>
+<div id=c>
+ <h1>🔐</h1>
+ <input id=k type=password placeholder=Key autocomplete=off>
+ <button onclick=l()>→</button>
+ <p id=e style=color:red;display:none>×</p>
+</div>
+<div id=d style=display:none>
+ <h1>🚨<span id=s>0</span></h1>
+ <div id=a></div>
+ <button onclick=o()>✕</button>
+</div>
+<script src=decrypt.js></script>
+<script>
+let p;
+async function l(){
+ p=document.getElementById('k').value;
+ try{
+  let r=await fetch('encrypted/alerts');
+  let t=await r.text();
+  await decrypt(t,p);
+  document.getElementById('c').style.display='none';
+  document.getElementById('d').style.display='block';
+ }catch{
+  document.getElementById('e').style.display='block';
+ }}
+function o(){
+ document.getElementById('d').style.display='none';
+ document.getElementById('c').style.display='block';
+ document.getElementById('k').value='';
+}
+async function show(d){
+ document.getElementById('s').textContent=d.length;
+ let h='';
+ d.forEach(i=>{
+  h+=`<div class=b ${i.p}><b>${i.m}</b><br><small>${new Date(i.t).toLocaleString()}</small></div>`});
+ document.getElementById('a').innerHTML=h;
+}
+</script>
+</body>
+</html>
